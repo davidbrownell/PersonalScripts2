@@ -1,0 +1,19 @@
+[project]
+name = "personalscripts2"
+version = "0.1.0"
+description = "Collection of scripts that I use to maintain my local system."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "attrs>=24.3.0",
+    "dbrownell-common>=0.14.4",
+    "typer>=0.15.1",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.8.6",
+]
+
+[tool.ruff]
+line-length = 110
