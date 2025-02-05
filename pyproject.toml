@@ -17,3 +17,26 @@ dev = [
 
 [tool.ruff]
 line-length = 110
+
+[tool.ruff.lint]
+select = ["ALL"]
+
+ignore = [
+    "ANN002", # Missing type annotation for `*args`
+    "ANN003", # Missing type annotation for `**kwargs`
+    "BLE001", # Do not catch blind exception: `Exception`
+    "COM812", # Trailing comma missing
+    "D202", # No blank lines allowed after function docstring
+    "E501", # Line too long
+    "N802", # Function name `xxx` should be lowercase
+    "S101", # Use of assert detected
+    "UP032", # Use f-string instead of `format` call
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 15
+
+[tool.ruff.lint.pylint]
+max-args = 10
+max-branches = 20
+max-returns = 20
