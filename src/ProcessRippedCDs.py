@@ -1,5 +1,5 @@
 # noqa: D100
-import os  # noqa: I001
+import os
 import re
 import shutil
 
@@ -213,7 +213,7 @@ class _Album:
 
     # ----------------------------------------------------------------------
     @classmethod
-    def from_directory(
+    def from_directory(  # noqa: C901
         cls,
         dm: DoneManager,
         directory: Path,
@@ -567,7 +567,7 @@ def _EncodeContent(
 
             with encode_dm.Nested(
                 "Processing '{}' ({} of {})...".format(album.name, album_index + 1, len(albums)),
-                lambda: GetInvokeResultSuffix(cast(_InvokeResult, encode_result)),  # noqa: B023
+                lambda: GetInvokeResultSuffix(cast("_InvokeResult", encode_result)),  # noqa: B023
                 suffix=lambda: "\n" if encode_result == _InvokeResult.Success else None,  # noqa: B023
             ) as album_encode_dm:
                 if input_directory_is_source:
@@ -626,7 +626,7 @@ def _ArchiveContent(
 
             with archive_dm.Nested(
                 "Processing '{}' ({} of {})...".format(album.name, album_index, len(albums)),
-                lambda: GetInvokeResultSuffix(cast(_InvokeResult, archive_result)),  # noqa: B023
+                lambda: GetInvokeResultSuffix(cast("_InvokeResult", archive_result)),  # noqa: B023
                 suffix=lambda: "\n" if archive_result == _InvokeResult.Success else None,  # noqa: B023
             ) as album_archive_dm:
                 archive_result = archiver(

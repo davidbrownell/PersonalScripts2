@@ -1,24 +1,27 @@
 [project]
-name = "personalscripts2"
+name = "PersonalScripts2"
+description = "Add your description here"
 version = "0.1.0"
-description = "Collection of scripts that I use to maintain my local system."
 readme = "README.md"
-requires-python = ">=3.13"
+authors = [
+    { name = "David Brownell", email = "github@DavidBrownell.com" }
+]
+requires-python = ">= 3.10"
 dependencies = [
-    "attrs>=24.3.0",
+    "attrs>=25.1.0",
     "dbrownell-common>=0.14.4",
     "typer>=0.15.1",
 ]
 
-[dependency-groups]
-dev = [
-    "ruff>=0.8.6",
-]
+[tool.pytest.ini_options]
+addopts = "--verbose -vv --capture=no --cov=PersonalScripts2 --cov-fail-under=95.0"
 
 [tool.ruff]
 line-length = 110
 
 [tool.ruff.lint]
+exclude = ["tests/**"]
+
 select = ["ALL"]
 
 ignore = [
@@ -28,7 +31,9 @@ ignore = [
     "COM812", # Trailing comma missing
     "D202", # No blank lines allowed after function docstring
     "E501", # Line too long
+    "I001", # Import block is un-sorted or un-formatted
     "N802", # Function name `xxx` should be lowercase
+    "N999", # Invalid module name
     "S101", # Use of assert detected
     "UP032", # Use f-string instead of `format` call
 ]
@@ -40,3 +45,9 @@ max-complexity = 15
 max-args = 10
 max-branches = 20
 max-returns = 20
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.2.0",
+    "ruff>=0.11.9",
+]
